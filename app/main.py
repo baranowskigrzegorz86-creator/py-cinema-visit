@@ -8,11 +8,24 @@ from app.people.cinema_staff import Cleaner
 from app.people.customer import Customer
 
 
-def cinema_visit(movie: Any, customers: Any, hall_number: Any, cleaner: Any) -> None:
+def cinema_visit(
+    movie: Any,
+    customers: Any,
+    hall_number: Any,
+    cleaner: Any,
+) -> None:
     if isinstance(movie, list) and isinstance(customers, int):
-        movie, customers, hall_number, cleaner = cleaner, movie, customers, hall_number
+        movie, customers, hall_number, cleaner = (
+            cleaner,
+            movie,
+            customers,
+            hall_number,
+        )
 
-    customer_instances = [Customer(name=c["name"], food=c["food"]) for c in customers]
+    customer_instances = [
+        Customer(name=c["name"], food=c["food"])
+        for c in customers
+    ]
 
     hall = CinemaHall(hall_number=hall_number)
     cleaning_staff = Cleaner(name=cleaner)
